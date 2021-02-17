@@ -1,27 +1,11 @@
-
-# Table of Contents
-
-1.  [FAQ](#org4dcb228)
-    1.  [Useful Tools](#orga55345f)
-        1.  [Nice to haves:](#orgc86e328)
-    2.  [Local Environment](#org0a9877c)
-    3.  [Auth0](#org709d95f)
-    4.  [End-To-End Testing with Nightwatch](#orgcd901f7)
-    5.  [Migrations](#orgde102ec)
-    6.  [Seeders](#org04cde58)
-    7.  [Inserting CI Data into Your Local Environment](#orgd0d353d)
-    8.  [Serving the Client Side from the Server in Your Local Environment](#orgd50f7ab)
-    9.  [Accessing the Local Database Without Using pgAdmin](#orgc18fda0)
-    10. [CircleCI Pipeline](#orgf4adcb9)
-
-
-
-<a id="org4dcb228"></a>
+---
+layout: default
+title: FAQ
+parent: Technical Context
+---
 
 # FAQ
 
-
-<a id="orga55345f"></a>
 
 ## Useful Tools
 
@@ -35,8 +19,6 @@ A. Necessary tools:
 -   Yarn: Manages our packages. You may need to install it in order to run end-to-end tests, but otherwise, Docker will handle installing yarn packages.
 -   Slack: Contributors will have access to the contributors, desk-check, and kick-off channels. Please feel free to bother core team with bugs, gifs, or any other issues. Stretch will be announced on the contributors channel. Core team will be granted access to additional channels.
 
-
-<a id="orgc86e328"></a>
 
 ### Nice to haves:
 
@@ -53,8 +35,6 @@ To connect to the Police Data Manager local database:
 -   Webstorm: IDE by JetBrains. Core team can obtain a license by emailing software-support@thoughtworks.com
 -   JSON View Chrome extension: Makes any JSON pages (including feature toggles) pretty. Download the Chrome extension here: <https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=en-US>
 
-
-<a id="org0a9877c"></a>
 
 ## Local Environment
 
@@ -88,16 +68,12 @@ A. Using your text editor of choice, edit `/etc/hosts` file to make it look like
 The reason that you need to edit this file is so that your computer knows what address to go to when the migrations use db or redis.
 
 
-<a id="org709d95f"></a>
-
 ## Auth0
 
 Q. What is Auth0 and why do I need it?
 
 A. Auth0 is a third-party service that provides authentication for  the different environments in Police Data Manager, including the local environment and testing. Contributors will receive an Auth0 invite to set up an account, which will give them access to local and CI environments. You will use these credentials to log in and local and CI environments. They must also be set as your local machine's environment variables (see above). Separate credentials are required for each (local + CI, staging, and production) environment. Please ask a core team member to ensure you have Deputy Police Monitor (DPM) privileges, even in CI and local environments.
 
-
-<a id="orgcd901f7"></a>
 
 ## End-To-End Testing with Nightwatch
 
@@ -113,8 +89,6 @@ Q. Help! My e2e test suite has failed. What do I do?
 
 A. Run it again. End-to-end tests can be flaky, especially if you have just run docker-compose up app. If the same test repeatedly fails, then look for a snapshot (see above), and investigate. You may also want to check that your local machine's variables are correctly set (see section on Local Environment). If your environment variables are correctly set, then ask a core team member if your Auth0 account has DPM privileges, which are required to successfully run tests.
 
-
-<a id="orgde102ec"></a>
 
 ## Migrations
 
@@ -151,8 +125,6 @@ Q. How to force re-run migrations if docker isn't recognizing a change?
 A. Delete the migration you want from the sequelize<sub>meta</sub> table first, using PGAdmin.
 
 
-<a id="org04cde58"></a>
-
 ## Seeders
 
 Q. How do I add data to a seeder .csv file without disrupting existing data?
@@ -176,8 +148,6 @@ Re-run seeder:
 *Note: Check that new data appears in the corresponding database and any expected changes in app UI appear*
 
 
-<a id="orgd0d353d"></a>
-
 ## Inserting CI Data into Your Local Environment
 
 Q. I want to use CI data in my local environment. How do I do that?
@@ -185,16 +155,12 @@ Q. I want to use CI data in my local environment. How do I do that?
 A. You will need access to data.heroku and NOIPM's Heroku credentials to retrieve the data. Once you are logged in, select CI database. Under the "Durability" tab at left, click the  "Create Manual Backup", which appears on the bottom right side. Once the file has finished being created, click "Download". Once the file (a .dump) file has finished downloading to your Downloads folder, find its name (it should be a long string of characters). In terminal, type pg<sub>restore</sub> -h localhost -p 5432 -U postgres -1 ~/Downloads/backup<sub>file</sub><sub>name</sub><sub>here.dump</sub>, replacing "backup<sub>file</sub><sub>name</sub><sub>here.dump</sub>" with the name of your backup file. Hit enter and watch the data transfer!
 
 
-<a id="orgd50f7ab"></a>
-
 ## Serving the Client Side from the Server in Your Local Environment
 
 Q. I want to serve the front end (client side) statically from the back end server in order to approximate the other environments in the development pipeline. How do I do that?
 
 A. In docker-compose.yml under `services > app > build > volumes`, uncomment out the command `- ./build:/app/build` to mount the build file. Under `service > app > build ? environments`, change `REACT_APP_ENV=development` to `REACT_APP_ENV=static_development`. You then need to build your front end using the command `REACT_APP_ENV=static_development yarn build` in your terminal. This will build your front end statically &#x2013; meaning you will lose hot loading capabilities; any subsequent changes in front end code will necessitate a rebuilding of your frontend or removing these changes and running front and back ends on separate ports. After the build simply run `docker-compose up app` to run the app from port 1234.
 
-
-<a id="orgc18fda0"></a>
 
 ## Accessing the Local Database Without Using pgAdmin
 
@@ -206,8 +172,6 @@ Q. How do I access the local database logs?
 
 A. `docker-compose logs db`
 
-
-<a id="orgf4adcb9"></a>
 
 ## CircleCI Pipeline
 

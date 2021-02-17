@@ -4,6 +4,7 @@ title: FAQ
 parent: Technical Context
 ---
 
+
 # FAQ
 
 
@@ -14,10 +15,9 @@ Q. What tools will I need or will be useful for this project?
 A. Necessary tools:
 
 -   Docker: containerization. Follow the README for instructions on downloading and running Docker. If you choose to sign in (not a requirement), sign in under you username not your email address. Docker-compose allows us to chain and run multiple containers. **Note that anytime you make a change to package.json, you will have to rebuild using ./scripts/docker-compose-build.sh from the root folder.** If you want to clear out or local database or suspect severe issues with the container itself, run docker-compose down to completely destroy the containers.
--   Postgres: SQL database for NOIPM. Will be automatically created, started, and migrated via Docker.
+-   Postgres: SQL database for PDM. Will be automatically created, started, and migrated via Docker.
 -   Git: Automatically pre-installed with Macs. Windows users will need to download it.
 -   Yarn: Manages our packages. You may need to install it in order to run end-to-end tests, but otherwise, Docker will handle installing yarn packages.
--   Slack: Contributors will have access to the contributors, desk-check, and kick-off channels. Please feel free to bother core team with bugs, gifs, or any other issues. Stretch will be announced on the contributors channel. Core team will be granted access to additional channels.
 
 
 ### Nice to haves:
@@ -26,13 +26,12 @@ A. Necessary tools:
 
 To connect to the Police Data Manager local database:
 
-    Right click Server.
-    Select Create < Servers
-    In the new modal, name the server anything you want. 
-    In the Connections tab: set "Host name/address" to "localhost"; "Maintenance database" should be set to "noipm-db" and "Username" should already be set to "postgres"; set "Password" to "password"
-    Save
+    - Right click Server.
+    - Select Create > Servers.
+    - In the new modal, name the server anything you want. 
+    - In the Connections tab: set "Host name/address" to "localhost"; "Maintenance database" should be set to "noipm-db" and "Username" should already be set to "postgres"; set "Password" to "password".
+    - Save.
 
--   Webstorm: IDE by JetBrains. Core team can obtain a license by emailing software-support@thoughtworks.com
 -   JSON View Chrome extension: Makes any JSON pages (including feature toggles) pretty. Download the Chrome extension here: <https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=en-US>
 
 
@@ -40,14 +39,12 @@ To connect to the Police Data Manager local database:
 
 Q. Which environment variables will I need?
 
-A. Local machine environment (.bashrc, .zshrc, etc):
-`REACT_APP_GOOGLE_API_KEY`: Obtained from a core team member, this key should be located in your .profile, .zshrc, or comparable local machine environment. It allows you to access address data from Google Maps.
-`TEST_USER`: Used for e2e testing, this should be set to your personal, local Auth0 account username is. Likely your ThoughtWorks email. For access to Auth0 credentials, please ask for an invite from the core team.
-`TEST_PASS`: The password for the TEST<sub>USER</sub> Auth0 account. 
+A. Local machine environment (`.bashrc`, `.zshrc`, etc.):
+`REACT_APP_GOOGLE_API_KEY`: This key should be located in your `.profile`, `.zshrc`, or comparable local machine environment. It allows you to access address data from Google Maps.
 
 Q. I'm getting this error when I am on the website: `Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID`
 
-A. On Chrome, go to chrome://flags/#allow-insecure-localhost and enable the flag for "Allow invalid certificates for resources loaded from localhost." Alternatively, you can type `thisisunsafe` into the error page on the latest Chrome and bypass that error temporarily.
+A. On Chrome, go to `chrome://flags/#allow-insecure-localhost` and enable the flag for "Allow invalid certificates for resources loaded from localhost.". Alternatively, on the latest Chrome, you can type `thisisunsafe` into the error page and bypass that error temporarily.
 
 Q. I'm getting this error when trying to run up or down migrations: `getaddrinfo ENOTFOUND db db:5432`
 
@@ -72,7 +69,7 @@ The reason that you need to edit this file is so that your computer knows what a
 
 Q. What is Auth0 and why do I need it?
 
-A. Auth0 is a third-party service that provides authentication for  the different environments in Police Data Manager, including the local environment and testing. Contributors will receive an Auth0 invite to set up an account, which will give them access to local and CI environments. You will use these credentials to log in and local and CI environments. They must also be set as your local machine's environment variables (see above). Separate credentials are required for each (local + CI, staging, and production) environment. Please ask a core team member to ensure you have Deputy Police Monitor (DPM) privileges, even in CI and local environments.
+A. Auth0 is a third-party service that provides authentication for the different environments in Police Data Manager. You will use these credentials to log in to the higher environments.
 
 
 ## End-To-End Testing with Nightwatch
@@ -81,13 +78,13 @@ Q. How do I run end-to-end testing?
 
 A. Run `yarn e2e`. The tests are headless, so you won't see the Chrome driver or any test UI appear.
 
-Q. How do I investigate a failed e2e test if there is no visible Chrome browser window?
+Q. How do I investigate a failed E2E test if there is no visible Chrome browser window?
 
-A. Snapshots of failed tests are taken as if the browser were open. These can be located in `e2e/tests/userJourney`. Each snapshot comes labeled with a timestamp and the name of the test that failed. After a failure, no subsequent e2e tests will run.
+A. Snapshots of failed tests are taken as if the browser were open. These can be located in `E2E/tests/userJourney`. Each snapshot comes labeled with a timestamp and the name of the test that failed. After a failure, no subsequent E2E tests will run.
 
-Q. Help! My e2e test suite has failed. What do I do?
+Q. Help! My E2E test suite has failed. What do I do?
 
-A. Run it again. End-to-end tests can be flaky, especially if you have just run docker-compose up app. If the same test repeatedly fails, then look for a snapshot (see above), and investigate. You may also want to check that your local machine's variables are correctly set (see section on Local Environment). If your environment variables are correctly set, then ask a core team member if your Auth0 account has DPM privileges, which are required to successfully run tests.
+A. Run it again. End-to-end tests can be flaky, especially if you have just run `docker-compose up app`. If the same test repeatedly fails, then look for a snapshot (see above), and investigate. You may also want to check that your local machine's variables are correctly set (see section on Local Environment). If your environment variables are correctly set, ensure your Auth0 account has DPM privileges, which are required to successfully run tests.
 
 
 ## Migrations
@@ -118,11 +115,11 @@ A. Run `yarn sequelize seed:generate --name seed-name` to automatically create t
 
 Q. How do I see migration transactions in development?
 
-A. In sequelize<sub>config.js</sub>, under "development" set logging to true. This should start logging the transactions in the command line when you run the app.
+A. In `sequelize_config.js`, under "development" set logging to true. This should start logging the transactions in the command line when you run the app.
 
 Q. How to force re-run migrations if docker isn't recognizing a change?
 
-A. Delete the migration you want from the sequelize<sub>meta</sub> table first, using PGAdmin.
+A. Delete the migration you want from the `sequelize_meta` table first, using PGAdmin.
 
 
 ## Seeders
@@ -137,13 +134,13 @@ A. **WARNING: DO NOT UNDO THE SEEDER!** This will lead to reference ID integrity
 
 For each environment you wish to re-seed data for:
 
--   Connect to the database for said environment and run the following command: DELETE FROM sequelize<sub>data</sub> WHERE name='<seeder-file-name>';
--   Check that this seeder file name is no longer in the sequelize<sub>data</sub> table
+-   Connect to the database for said environment and run the following command: `DELETE FROM sequelize_data WHERE name='<seeder-file-name>';`
+-   Check that this seeder file name is no longer in the `sequelize_data` table.
 
 Re-run seeder:
 
--   Local: Run a docker-compose up app command
--   Higher Environments: Access the console for said environment on Heroku and run the following command: yarn run sequelize db:seed:all
+-   Local: Run a `docker-compose up app` command.
+-   Higher Environments: Access the console for said environment on Heroku and run the following command: `yarn run sequelize db:seed:all`
 
 *Note: Check that new data appears in the corresponding database and any expected changes in app UI appear*
 
@@ -152,7 +149,7 @@ Re-run seeder:
 
 Q. I want to use CI data in my local environment. How do I do that?
 
-A. You will need access to data.heroku and NOIPM's Heroku credentials to retrieve the data. Once you are logged in, select CI database. Under the "Durability" tab at left, click the  "Create Manual Backup", which appears on the bottom right side. Once the file has finished being created, click "Download". Once the file (a .dump) file has finished downloading to your Downloads folder, find its name (it should be a long string of characters). In terminal, type pg<sub>restore</sub> -h localhost -p 5432 -U postgres -1 ~/Downloads/backup<sub>file</sub><sub>name</sub><sub>here.dump</sub>, replacing "backup<sub>file</sub><sub>name</sub><sub>here.dump</sub>" with the name of your backup file. Hit enter and watch the data transfer!
+A. You will need access to data.heroku and PDM's Heroku credentials to retrieve the data. Once you are logged in, select CI database. Under the "Durability" tab at left, click the  "Create Manual Backup", which appears on the bottom right side. Once the file has finished being created, click "Download". Once the file (a .dump) file has finished downloading to your Downloads folder, find its name (it should be a long string of characters). In terminal, type `pg_restore -h localhost -p 5432 -U postgres -1 ~/Downloads/backup_file_name_here.dump`, replacing "backup<sub>file</sub><sub>name</sub><sub>here.dump</sub>" with the name of your backup file. Hit enter and watch the data transfer!
 
 
 ## Serving the Client Side from the Server in Your Local Environment
@@ -176,8 +173,8 @@ A. `docker-compose logs db`
 ## CircleCI Pipeline
 
 *Note: Instructions for installing CircleCI CLI can be found here.*
-Q. How do I run e2e tests against CI with CircleCI locally?
+Q. How do I run E2E tests against CI with CircleCI locally?
 
-A. Un-comment the "Install Git" step in e2e-testing-ci-pdm job (.circleci/config.yml) and run the following command:
-`circleci local execute -c .circleci/config.yml -e CI_TEST_PASS=<test-pass> -e CI_TEST_USER=<test-user> --job e2e-testing-ci-pdm`
+A. Un-comment the "Install Git" step in E2E-testing-ci-pdm job (`.circleci/config.yml`) and run the following command:
+`circleci local execute -c .circleci/config.yml -e CI_TEST_PASS=<test-pass> -e CI_TEST_USER=<test-user> --job E2E-testing-ci-pdm`
 

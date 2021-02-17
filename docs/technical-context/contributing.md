@@ -15,7 +15,7 @@ General testing practices and expectations:
    * Manually test your work to make sure things look good in the browser (i.e. localhost).
 
 ## Getting Started
-1. [Fork](https://www.google.com/url?q=https%3A%2F%2Fhelp.github.com%2Farticles%2Ffork-a-repo&sa=D&sntz=1&usg=AFQjCNGcCGmleUBtcikSUfSZjgOGmEvt1A) the [respository](https://github.com/PublicDataWorks/police_data_manager) on GitHub 
+1. [Fork](https://www.google.com/url?q=https%3A%2F%2Fhelp.github.com%2Farticles%2Ffork-a-repo&sa=D&sntz=1&usg=AFQjCNGcCGmleUBtcikSUfSZjgOGmEvt1A) the [repository](https://github.com/PublicDataWorks/police_data_manager) on GitHub 
 2. [Clone](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) the project
 3. Follow [README](https://github.com/PublicDataWorks/police_data_manager/blob/master/README.md) on GitHub to set up local machine
 4. Begin Contributing!

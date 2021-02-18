@@ -36,10 +36,12 @@ Document Storage
 * [AWS S3](https://aws.amazon.com/s3/) - **DISABLED BY DEFAULT** - Used for document storage of case attachments and letters.
 
 Logging and Monitoring
-* [Papertrail]() - Used for log storage and error alerting.
+* [Papertrail](https://www.papertrail.com/) - Used for log storage and error alerting.
+* [New Relic](https://newrelic.com/) - Used to monitor performance.
+* [Google Analytics](https://analytics.google.com/analytics/web/provision/#/provision) - Used for web application analytics.
 
 Continuous Integration and Deployment
-* [Heroku](https://www.heroku.com/)
+* [Heroku](https://www.heroku.com/) - PaaS that hosts our application.
 * [CircleCI](https://circleci.com/)
 
 Additionally, feel free to take a look at some of our Architectural Decisions [here](https://github.com/PublicDataWorks/police_data_manager/tree/master/doc/adr).
@@ -131,3 +133,17 @@ However, if you want to, for whatever reason, use authentication or AWS locally,
 5. Run up localhost in your terminal like you normally would (`docker-compose up app`) and the app should now need AWS and authentication credentials and you can move about the app freely.
 
 For instructions on how to execute the tests discussed here, see [README](https://github.com/PublicDataWorks/police_data_manager/blob/master/README.md)
+
+## Security
+* We regularly scan for outdated dependencies with [Hawkeye](https://github.com/hawkeyesec/scanner-cli) 
+Scanner, which runs on all commits. When a vulnerability is identified, we use [Snyk Vulnerability Database](https://snyk.io/vuln)
+for information and remediation. Hawkeye is also useful for ensuring that no secrets or passwords are
+checked into our application code. 
+* We subscribe to security advisories for different technologies within our tech stack, so we
+can receive prompt notification of any incidents or outages (i.e, Docker, AWS, Heroku, etc.).
+* We implement a strict Content Security Policy (CSP) for all our environments using [Helmet](https://www.npmjs.com/package/helmet),
+which we evaluate using Google's [CSP Evaluator](https://csp-evaluator.withgoogle.com/) tool.
+* We use SSL for encryption of request/response. [SSL certificates are automatically
+managed and renewed by Heroku](https://devcenter.heroku.com/articles/understanding-ssl-on-heroku).
+* Our Postgres database is encrypted at rest (provided by hosting on Heroku).
+* [**Only applicable if enabled**] AWS S3 files are encrypted with AES-256 Server-Side Encryption using Amazon S3-Managed Keys (SSE-S3) at rest and in transit.

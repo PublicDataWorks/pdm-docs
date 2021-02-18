@@ -35,9 +35,8 @@ General testing practices and expectations:
 *  Provide Helpful [Feedback](https://docs.google.com/forms/d/e/1FAIpQLSesNcMYgQjse5fBK_CKtRwsikOvpqEzHAbctHWkmbsMCxCE1A/viewform)
   
 ## Helpful Resources 
-* [Architectural and Data Flow diagrams]()
-* [FAQ]()
-* [Troubleshooting]()
+* [Development Resources](https://publicdataworks.github.io/pdm-docs/technical-context/development-resources.html)
+* [FAQs and Troubleshooting](https://publicdataworks.github.io/pdm-docs/technical-context/faq.html)
 
 
 

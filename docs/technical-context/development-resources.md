@@ -67,6 +67,22 @@ At the time of writing, they include:
 * CI.*.json
 * Staging.*.json
 
+## Development Patterns
+**Soft Delete**
+
+We use the `paranoid` flag in Sequelize to ‘soft delete’ records instead of removing them from the database. This is important to know when 
+you run any raw queries that you need to select rows where `deleted_at` is null, or you’ll pull in data that is supposed to be deleted. This 
+comes into play in our export case information functionality.
+
+**Wrapping Migrations in a Single Transaction**
+
+When we write migrations, we wrap the changes in "transactions" which are essentially promises that Sequelize creates to touch the database. 
+To ensure that we don't have changes left hanging when a migration fails, we want to wrap the entire migration in a single transaction. 
+There may be many smaller transactions within the single wrapper transaction, but they would all roll back if one fails. 
+
+To do so, pass `transaction` as a param in referenced `async` functions. Take a look at [transformDuplicateCaseNoteActions.js](https://github.com/PublicDataWorks/police_data_manager/blob/master/src/server/migrationJobs/transformDuplicateCaseNoteActions.js) 
+and [20200108192000-remove-duplicates-case-note-actions.js](https://github.com/PublicDataWorks/police_data_manager/blob/master/src/server/migrations/20200108192000-remove-duplicates-case-note-actions.js) for reference.
+
 ## Testing
 **Unit Tests**
 

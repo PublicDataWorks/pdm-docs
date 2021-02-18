@@ -5,7 +5,7 @@ parent: Technical Context
 ---
 # Development Resources
 ## Architecture Diagram
-![](../assets/images/architecture_diagram.png)
+![](../assets/images/pdm_architecture_diagram.png)
 
 Frontend:
 * [React](https://reactjs.org/) - A JavaScript library used to build UI components. We use a combination of functional and class 
@@ -33,7 +33,7 @@ Higher environments send requests from client browser through an API Gateway run
 
 Document Storage
 * [LocalStack](https://localstack.cloud/) - An AWS mocking framework used when AWS services are disabled in development.
-* [AWS S3](https://aws.amazon.com/s3/) - DISABLED BY DEFAULT - Used for document storage of case attachments and letters.
+* [AWS S3](https://aws.amazon.com/s3/) - **DISABLED BY DEFAULT** - Used for document storage of case attachments and letters.
 
 Logging and Monitoring
 * [Papertrail]() - Used for log storage and error alerting.

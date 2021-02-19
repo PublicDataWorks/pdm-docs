@@ -1,7 +1,7 @@
 ---
 layout: default
 title: New City Setup
-parent: Technical Context
+parent: Technical Content
 has_children: true
 permalink: /docs/technical-context/new-city-setup
 ---

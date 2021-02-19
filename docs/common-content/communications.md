@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Communications with Maintainers
-parent: Common Context
+parent: Common Content
 ---
 
 # Communications with Maintainers

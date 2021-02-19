@@ -2,7 +2,7 @@
 layout: default
 title: Live Demo City
 parent: New City Setup
-grand_parent: Technical Context
+grand_parent: Technical Content
 ---
 # Live Demo City
 

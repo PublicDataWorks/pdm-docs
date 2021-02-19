@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Development Resources
-parent: Technical Context
+parent: Technical Content
 ---
 # Development Resources
 ## Architecture Diagram

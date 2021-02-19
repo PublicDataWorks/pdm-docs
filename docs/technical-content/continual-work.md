@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Continual Work
-parent: Technical Context
+parent: Technical Content
 ---
 
 # Continual Work

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Contributing
-parent: Technical Context
+parent: Technical Content
 ---
 # Contributor Guidelines
 ## Our Expectations

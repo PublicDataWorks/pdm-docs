@@ -64,6 +64,21 @@ A. Using your text editor of choice, edit `/etc/hosts` file to make it look like
 
 The reason that you need to edit this file is so that your computer knows what address to go to when the migrations use db or redis.
 
+Q. I'm getting this error when trying to re-build the docker containers: `ERROR: Service '[...]' failed to build: [...] : no space left on device`.
+
+A. Run Docker Prune using the command `docker system prune -a`.
+
+Q. How do I clear HTTPS redirect caching in Chrome?
+
+A. When Chrome detects an HTTP to HTTPS redirect, Chrome will no longer go to the backend without doing the redirect from within the browser. When you need to test the HTTPS redirect in our app that are working correctly, you would need to clear this cache so that the client side application can be instructed by the server side to redirect.
+
+-   Go to `chrome://net-internals`.
+-   Navigate to the Domain Security Policy, which will be located at the bottom of the left-hand side navbar.
+-   Scroll to the bottom of the page. In the "Delete domain security policies" section, type in the domain of the cache you wish to delete.
+-   Press Delete.
+
+*Note: To check that you have deleted the domain cache properly, you can scroll to the top to the Query HSTS/PKP Domain section. Type in the domain again, and press Query. You have deleted the domain cache properly, if the result from the query is Not found.*
+
 
 ## Auth0
 
@@ -149,14 +164,14 @@ Re-run seeder:
 
 Q. I want to use CI data in my local environment. How do I do that?
 
-A. You will need access to data.heroku and PDM's Heroku credentials to retrieve the data. Once you are logged in, select CI database. Under the "Durability" tab at left, click the  "Create Manual Backup", which appears on the bottom right side. Once the file has finished being created, click "Download". Once the file (a .dump) file has finished downloading to your Downloads folder, find its name (it should be a long string of characters). In terminal, type `pg_restore -h localhost -p 5432 -U postgres -1 ~/Downloads/backup_file_name_here.dump`, replacing "backup<sub>file</sub><sub>name</sub><sub>here.dump</sub>" with the name of your backup file. Hit enter and watch the data transfer!
+A. You will need access to data.heroku and PDM's Heroku credentials to retrieve the data. Once you are logged in, select CI database. Under the "Durability" tab at left, click the  "Create Manual Backup", which appears on the bottom right side. Once the file has finished being created, click "Download". Once the file (a .dump) file has finished downloading to your Downloads folder, find its name (it should be a long string of characters). In terminal, type `pg_restore -h localhost -p 5432 -U postgres -1 ~/Downloads/backup_file_name_here.dump`, replacing `backup_file_name_here.dump` with the name of your backup file. Hit enter and watch the data transfer!
 
 
 ## Serving the Client Side from the Server in Your Local Environment
 
 Q. I want to serve the front end (client side) statically from the back end server in order to approximate the other environments in the development pipeline. How do I do that?
 
-A. In docker-compose.yml under `services > app > build > volumes`, uncomment out the command `- ./build:/app/build` to mount the build file. Under `service > app > build ? environments`, change `REACT_APP_ENV=development` to `REACT_APP_ENV=static_development`. You then need to build your front end using the command `REACT_APP_ENV=static_development yarn build` in your terminal. This will build your front end statically &#x2013; meaning you will lose hot loading capabilities; any subsequent changes in front end code will necessitate a rebuilding of your frontend or removing these changes and running front and back ends on separate ports. After the build simply run `docker-compose up app` to run the app from port 1234.
+A. In docker-compose.yml under `services > app > build > volumes`, uncomment out the command `- ./build:/app/build` to mount the build file. Under `service > app > build > environments`, change `REACT_APP_ENV=development` to `REACT_APP_ENV=static_development`. You then need to build your front end using the command `REACT_APP_ENV=static_development yarn build` in your terminal. This will build your front end statically &#x2013; meaning you will lose hot loading capabilities; any subsequent changes in front end code will necessitate a rebuilding of your frontend or removing these changes and running front and back ends on separate ports. After the build simply run `docker-compose up app` to run the app from port 1234.
 
 
 ## Accessing the Local Database Without Using pgAdmin

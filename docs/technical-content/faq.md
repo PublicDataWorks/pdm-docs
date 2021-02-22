@@ -1,7 +1,7 @@
 ---
 layout: default
 title: FAQ
-parent: Technical Context
+parent: Technical Content
 ---
 
 

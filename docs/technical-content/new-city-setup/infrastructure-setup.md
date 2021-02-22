@@ -34,12 +34,11 @@ grand_parent: Technical Content
 * Run `terraform init `
 
   **Note:** Ensure that terraform is using remote state in s3, stored in noipm-terraform bucket. If you are, you should see the following message after executing the command:
+    ```
+    Initializing the backend...
 
-      ```
-      **Initializing the backend...**
-
-      Successfully configured the backend "s3"! Terraform will automatically use this backend unless the backend configuration changes.
-      ```
+    Successfully configured the backend "s3"! Terraform will automatically use this backend unless the backend configuration changes.
+    ```
 
 ### Manual Steps before Provisioning
 * Add Secrets to AWS Secrets Manager for respective environments (e.g. ci/Env/Config, staging/Env/Config)

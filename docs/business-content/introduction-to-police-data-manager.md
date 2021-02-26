@@ -22,25 +22,22 @@ This tool also enables analysis of complaint data through visualizations. We hav
 
 ## Feature Highlights
 ### Search
-The new Search feature is a full text search that utilizes Elasticsearch allowing for a simple and intuitive way to find specific complaint data. Previously users were only able to browse the list of complaints by sorting on certain fields. With the new Elasticsearch feature, users can search complaints based on various fields (such as complainant names, accused officer names, tags, etc) simply by entering a search term into a single search box. Results are displayed in separate categories to highlight which field they match for easier discovery. 
+The new Search feature is a full text search that allows for a simple and intuitive way for users to find specific complaint data. Previously users were only able to browse the list of complaints by sorting on certain fields. With the new Elasticsearch-based feature, users can search complaints based on various fields (such as complainant names, accused officer names, tags, etc) simply by entering a search term into a single search box. Results are displayed in separate categories to highlight which field they match for easier discovery. 
 
 ### Visualizations
-In order to understand trends, highlight effective strategies, or identify problem areas—complaints need to be measured together. Within PDM there is a dashboard that offers complaint data for analysis using data visualizations. These visualizations show the total complaints for a specific timeframe separated by a particular attribute such as complainant yype or intake source. There is also a breakdown of tag usuage within Police Data Manager showing the top, most-used tags and the number of times they were added onto a case. 
+In order to understand trends, highlight effective strategies, or identify problem areas—complaints need to be measured together. Within PDM there is a dashboard that offers complaint data for analysis using data visualizations. These visualizations show the total complaints for a specific timeframe separated by a particular attribute such as complainant type or intake source. There is also a breakdown of tag usage within Police Data Manager showing the top, most-used tags and the number of times they were added onto a case. 
 
 ### Case Notes and Notifications
-Case Notes are a way for users to record information about complaint processes that can occur outside of the PDM application (such as contacting complaints). There is also an ability to mention other PDM users in a case note which will alert that user and bring their attention to that complaint. Mentioned users are notified with a badge alert in the header of each page that can be followed to the exact complaint with the case note in question highlighted. These case notes and notifcations encourage collaboration and ensure faster responses to improve complaint intake cycle time. 
+Case Notes are a way for users to record information about complaint processes that can occur outside of the PDM application (such as contacting complainants). There is also an ability to mention other PDM users in a case note which will alert that user and bring their attention to that complaint. Mentioned users are notified with a badge alert in the header of each page that can be followed to the exact complaint with the case note in question highlighted. These case notes and notifcations encourage collaboration and ensure faster responses to improve complaint intake cycle time. 
 
 ### Tags
-The tagging feature allows Complaint Intake Specialists to add an additional attribute to complaints. Users are able to create, add, and remove tags from various complaints with this feature.
-Tags are a useful tool for grouping complaints together to identify trends and tell a bigger story. 
+The tagging feature allows Complaint Intake Specialists to add an additional attribute to complaints. Users are able to create, add, and remove tags from various complaints with this feature. Tags are a useful tool for grouping complaints together to identify trends and tell a bigger story. 
 
 
 ### Auditing
-The auditing feature captures information around varying user actions within the application. Auditing aids civilian police oversight agencies by generating an automated record of data changes, data accesses, and logins/logouts. Additionally, these records are easily
-exported from the application as .csv files. The export of cases and the audits themselves is also recorded in the audit logs. The PDM application bundles information for a particular complaint within the *Case History* section of a complaint's *Case Details* page. The information here will relate only to the complaint
-a user is currently viewing and provide information around when it was created, edited, or archived. 
+The auditing feature captures information around varying user actions within the application. Auditing aids civilian police oversight agencies by generating an automated record of all data changes, data accesses, and logins/logouts for every user. Additionally, these records are easily exported from the application as .csv files. The export of cases and the audits themselves are also recorded in the audit logs. The PDM application bundles information for a particular complaint within the *Case History* section of a complaint's *Case Details* page. The information there will relate only to the complaint a user is currently viewing.
 
 ## Product Demo
 
-## Testimonials / Social Proof (Link to TW website?)
+## Testimonials / Social Proof
 

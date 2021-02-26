@@ -25,8 +25,14 @@ See [Feature Highlights](https://publicdataworks.github.io/pdm-docs/business-con
 ## Feature Highlights (Tagging / Auditing / Notifications / etc.)
 
 - Sea Search
+The new Search feature is a full text search that utilizes Elasticsearch allowing for a simple and intuitive way to find specific complaint data. Previously users were only able to browse the list of complaints by sorting on certain fields. With the new Elasticsearch feature, users can search complaints based on various fields (such as complainant names, accused officer names, tags, etc) simply by entering a search term into a single search box. Results are displayed in separate categories to highlight which field they match for easier discovery. 
+
 - Sea Visualizations (agnostic of Private/public)
+In order to understand trends, highlight effective strategies, or identify problem areas—complaints need to be measured together. Within PDM there is a dashboard that offers complaint data for analysis using data visualizations. These visualizations show the total complaints for a specific timeframe separated by a particular attribute such as complainant yype or intake source. There is also a breakdown of tag usuage within Police Data Manager showing the top, most-used tags and the number of times they were added onto a case. 
 - Sea Case Notes and Notifications
+
+Case Notes are a way for users to record information about complaint processes that can occur outside of the PDM application (such as contacting complaints). There is also an ability to mention other PDM users in a case note which will alert that user and bring their attention to that complaint. Mentioned users are notified with a badge alert in the header of each page that can be followed to the exact complaint with the case note in question highlighted. These case notes and notifcations encourage collaboration and ensure faster responses to improve complaint intake cycle time. 
+
 - Sab Tags
 - Sab Auditing and Case History and Exports
 

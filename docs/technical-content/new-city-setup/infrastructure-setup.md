@@ -14,6 +14,37 @@ grand_parent: Technical Content
 * Setup a Google Maps API Key for address auto completion functionality
 * Setup an Elastic Cloud instance for Search functionality
 
+## Cost Expectations
+Github 
+* **($0.00/mo)** Maintaining an instance of PDM can be supported using Github's Free tier for organizations. 
+* For more info see [Github Pricing](https://github.com/pricing)
+
+Heroku 
+* Production Environment - **($72.01/mo)** Hobby level Dynos with Standard level Data Services
+* Heroku Lower Environments (2) - **($31.01/month per env)** Hobby levels for both Dynos and Data Services
+* For more information see [Heroku Pricing](https://www.heroku.com/pricing)
+
+AWS
+* **(~$2.50/mo)** It's "pay-as-you-go" for various AWS services, but we average about this much.
+* For more information see [AWS Pricing](https://aws.amazon.com/pricing/)
+
+Circle CI
+* **(~$50.00/mo)** We use the Linux plan with 1 paid and 1 free container
+* For more information see [Circle CI Pricing](https://circleci.com/pricing/)
+
+Docker
+* **($15.00/mo)** Team Plan
+* For more information see [Docker Pricing](https://www.docker.com/pricing)
+
+Elastic Cloud
+* **($16.00/mo)** Standard Plan
+* For more information see [Elastic Cloud Pricing](https://www.elastic.co/pricing/)
+
+Google Maps API
+* **($0.00/mo)** We use the Geocoding and Places APIs but our usage is below the monthly $200 credit and we do not pay any costs.
+* For more information see [Google Maps API Pricing](https://cloud.google.com/maps-platform/pricing)
+
+**Total Per Month** - About $217.53
 
 ## Getting Started
 

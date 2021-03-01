@@ -15,6 +15,8 @@ grand_parent: Technical Content
 * Setup an Elastic Cloud instance for Search functionality
 
 ## Cost Expectations
+*Pricing Last Updated: 03/01/2021*
+
 Github 
 * **($0.00/mo)** Maintaining an instance of PDM can be supported using Github's Free tier for organizations. 
 * For more info see [Github Pricing](https://github.com/pricing)

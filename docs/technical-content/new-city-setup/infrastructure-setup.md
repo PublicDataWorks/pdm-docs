@@ -53,7 +53,7 @@ Google Maps API
 ### Uses
 * The expectation is that any infrastructure changes that need to be done in any higher environments be done using Terraform scripts.
 * This guide helps new contributors get setup with Terraform so they can make changes to their application infrastructure if/when the need arises.
-* You can find their scripts under the `infra/envs/<env name>` directory.
+* You can find their scripts under the `infra/envs/<env name>` and `infra/envs/common` directories.
 
 ### Setting Up Local Env for Provisioning
 * Install Terraform [here](https://learn.hashicorp.com/tutorials/terraform/install-cli#install-terraform)
@@ -74,12 +74,12 @@ Google Maps API
     ```
 
 ### Manual Steps before Provisioning
-* Add Secrets to AWS Secrets Manager for respective environments (e.g. ci/Env/Config, staging/Env/Config)
+* Add Secrets to AWS Secrets Manager for respective environments (e.g. ci/Env/Config, staging/Env/Config):
   ```
-  AUTH0_CLIENT_SECRET
-  AWS_ACCESS_KEY_ID
-  AWS_BUCKET_NAME
-  AWS_SECRET_ACCESS_KEY
+  <env>_AUTH0_CLIENT_SECRET
+  <env>_AWS_ACCESS_KEY_ID
+  <env>_AWS_BUCKET_NAME
+  <env>_AWS_SECRET_ACCESS_KEY
   LANG
   NEW_RELIC_APP_NAME
   NEW_RELIC_ENABLED
@@ -90,15 +90,29 @@ Google Maps API
   ```
 
 ### Steps to Provision 
+**Individual Environment Resources**
 * Navigate to project directory and cd into `infra/envs/<env name>`
 * Run `terraform init`
 * Run `terraform plan`
-* Provide the Heroku API key for the NOIPM Infrastructure account:
+* Provide the Heroku API key for your Infrastructure account:
   * Go to https://dashboard.heroku.com/account
   * Scroll to **"API Key" Section-> Click "Reveal"**
 * If everything looks right, then run `terraform apply`
 * Follow previously listed steps to provide the Heroku API key
 * Type "yes" to confirm provisioning the changes
+
+**Common Environment Resources**
+* Navigate to project directory and cd into `infra/envs/common`
+* Run `terraform init`
+* Run `terraform plan`
+* You will be prompted to provide the API key for your Elasticsearch Cloud instance
+* You will also be prompted to provide and organization name (i.e. noipm)
+* If everything looks right, then run `terraform apply`
+* Type "yes" to confirm provisioning the changes
+* You will see two outputs (elasticsearch_username and elasticsearch_password). Save these values as ELASTIC_USERNAME and ELASTIC_PASSWORD in the Environment Variables section of your pipeline
+
+    *Note: We have a [scheduled CircleCI job](https://circleci.com/docs/2.0/workflows/#nightly-example) which updates Elasticsearch indices every night for all higher environments*
+
 
 ### Manual Steps after Provisioning
 * Create a scheduler job for restarting the Heroku Server Dynos

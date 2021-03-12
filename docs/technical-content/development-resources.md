@@ -144,7 +144,7 @@ However, if you want to, for whatever reason, use authentication or AWS locally,
     * `AWS_SECRET_ACCESS_KEY`
 
 4. Repeat steps 1 and 2 but now for the `worker` and `app-e2e`  services (within the same file, below the app service). 
-    * For E2E tests, you must also change variable `disableAuthentication` in the [nightwatch.conf.js](https://github.com/PublicDataWorks/police_data_manager/blob/master/e2e/nightwatch.conf.js) file from true to false.
+    * For E2E tests, you must also change variable `disableAuthentication` in the `nightwatch.conf.js` file in your `instance-files` repository from true to false.
     * **Note**: These changes will now invoke authentication when running `yarn e2e` locally.
 5. Run up localhost in your terminal like you normally would (`docker-compose up app`) and the app should now need AWS and authentication credentials and you can move about the app freely.
 

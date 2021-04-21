@@ -37,7 +37,11 @@ parent: Technical Content
 **Q**. Which environment variables will I need?
 
 **A**. `REACT_APP_GOOGLE_API_KEY`: This key should be located in your `.profile`, `.zshrc`, or comparable local machine environment. It allows you to access address data from Google Maps. Some additional variables may be needed for cloud servics,
-see [Conditionally Run Tests](https://publicdataworks.github.io/pdm-docs/technical-content/development-resources.html#testing) section for more information.
+see [Conditionally Run Tests](https://publicdataworks.github.io/pdm-docs/technical-content/development-resources.html#testing) section for more information. 
+
+**Q**. Which environment variables will I need to use instance-files within my local file system?
+
+**A**. You will need to set `INSTANCE_FILES_DIR` to the absolute path of `/instance-files` within your local file system. You may retrieve this by running a `pwd` command from the instance-files directory within your cloned instance files repository (i.e. instance_files_your_organization_name). Once set, follow directions notated within the `docker-compose.yml`.
 
 **Q**. I'm getting this error when I am on the website: `Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID`
 

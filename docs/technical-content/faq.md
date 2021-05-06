@@ -199,6 +199,23 @@ Re-run seeder:
 
 *Note: Check that new data appears in the corresponding database and any expected changes in app UI appear*
 
+## Elastic Search
+
+**Q**. How can I re-run the index search creation in my local development environment?
+
+**A**. You would have to run the `docker-compose run --rm app yarn setup:elasticsearch` script which can rebuild the search index for you locally. 
+
+**Q**: How do I run test search queries? 
+
+**A**: Run the following command in your terminal:
+
+`npx babel-node ./scripts/search/query-index.js <search query>`
+
+Q: How do I run test search queries in higher environments? 
+
+A: Copy the elastic credentials from 1Password and use them to run the following command in your terminal:
+
+`ELASTIC_USERNAME=<username> ELASTIC_PASSWORD=<password> NODE_ENV=<lower-cased-env-name> npx babel-node ./scripts/search/query-index.js <search query>`
 
 ## Serving the Client Side from the Server in Your Local Environment
 

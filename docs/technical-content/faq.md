@@ -69,6 +69,10 @@ The reason that you need to edit this file is so that your computer knows what a
 
 **A**. Run Docker Prune using the command `docker system prune -a`.
 
+**Q**. I'm getting a similar error as to the one above with my system running out of memory (especially after running the build script `./scripts/docker-compose-build.sh`)
+
+**A**. Increase your memory to 6gb by going into your docker preferences and selecting the resources tab.
+
 **Q**. How do I clear HTTPS redirect caching in Chrome?
 
 **A**. When Chrome detects an HTTP to HTTPS redirect, Chrome will no longer go to the backend without doing the redirect from within the browser. When you need to test that the HTTPS redirect in our app is working correctly, you would need to clear this cache so that the client side application can be instructed by the server side to redirect.
@@ -79,7 +83,6 @@ The reason that you need to edit this file is so that your computer knows what a
 -   Press Delete.
 
 *Note: To check that you have deleted the domain cache properly, you can scroll to the top to the Query HSTS/PKP Domain section. Type in the domain again, and press "Query". You have deleted the domain cache properly, if the result from the query is "Not found".*
-
 
 ## Auth0
 
